@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	xmlns:tns="CONTACTS2:" 
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified" 
+	targetNamespace="CONTACTS2: "
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:A="AirSyncBase:">
+
+	<xs:import namespace="AirSyncBase:" />
+	<xs:element name ="CustomerId" type="xs:string" />
+	<xs:element name ="GovernmentId" type="xs:string"/>
+	<xs:element name ="IMAddress" type="xs:string"/>
+	<xs:element name ="IMAddress2" type="xs:string"/>
+    <xs:element name ="IMAddress3" type="xs:string"/>
+	<xs:element name ="ManagerName" type="xs:string"/>
+	<xs:element name ="CompanyMainPhone" type="xs:string"/>
+	<xs:element name ="AccountName" type="xs:string" />
+	<xs:element name ="NickName" type="xs:string" />
+	<xs:element name ="MMS" type="xs:string"/>
+</xs:schema>

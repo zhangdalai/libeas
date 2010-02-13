@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<xs:schema
+	xmlns:tns="DOC:"
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="DOC:"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:A="AirSyncBase:">
+ 
+	<xs:import namespace="AirSyncBase" />
+	<xs:element name="LinkId" type="xs:string" />
+	<xs:element name="DisplayName" type="xs:string" />
+	<xs:element name="IsFolder" type="xs:unsignedByte" />
+	<xs:element name="CreationDate" type="xs:dateTime" />
+	<xs:element name="LastModifiedDate" type="xs:dateTime" />
+	<xs:element name="IsHidden" type="xs:unsignedByte" />
+	<xs:element name="ContentLength" type="xs:unsignedByte" />
+	<xs:element name="ContentType" type="xs:unsignedByte" />
+</xs:schema>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	xmlns:tns="CONTACTS:"
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="CONTACTS:"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:A="AirSyncBase:">
+	
+<xs:import namespace="AirSyncBase:" />
+	<xs:element name="Anniversary" type="xs:dateTime" />
+	<xs:element name="AssistantName" type="xs:string" />
+	<xs:element name="AssistantPhoneNumber" type="xs:string" />
+	<xs:element name="AssistnamePhoneNumber" type="xs:string" />
+	<xs:element name="Birthday" type="xs:dateTime" />
+	<xs:element name="Business2PhoneNumber" type="xs:string" />
+	<xs:element name="BusinessAddressCity" type="xs:string" />
+	<xs:element name="BusinessPhoneNumber" type="xs:string" />
+	<xs:element name="WebPage" type="xs:string" />
+	<xs:element name="BusinessAddressCountry" type="xs:string" />
+	<xs:element name="Department" type="xs:string" />
+	<xs:element name="Email1Address" type="xs:string" />
+	<xs:element name="Email2Address" type="xs:string" />
+	<xs:element name="Email3Address" type="xs:string" />
+	<xs:element name="BusinessFaxNumber" type="xs:string" />
+	<xs:element name="FileAs" type="xs:string" />
+	<xs:element name="Alias" type="xs:string" />
+	<xs:element name="WeightedRank" type="xs:int" />
+	<xs:element name="FirstName" type="xs:string" />
+	<xs:element name="MiddleName" type="xs:string" />
+	<xs:element name="HomeAddressCity" type="xs:string" />
+	<xs:element name="HomeAddressCountry" type="xs:string" />
+	<xs:element name="HomeFaxNumber" type="xs:string" />
+	<xs:element name="HomePhoneNumber" type="xs:string" />
+	<xs:element name="Home2PhoneNumber" type="xs:string" />
+	<xs:element name="HomeAddressPostalCode" type="xs:string" />
+	<xs:element name="HomeAddressState" type="xs:string" />
+	<xs:element name="HomeAddressStreet" type="xs:string" />
+	<xs:element name="MobilePhoneNumber" type="xs:string" />
+	<xs:element name="Suffix" type="xs:string" />
+	<xs:element name="CompanyName" type="xs:string" />
+	<xs:element name="OtherAddressCity" type="xs:string" />
+	<xs:element name="OtherAddressCountry" type="xs:string" />
+	<xs:element name="CarPhoneNumber" type="xs:string" />
+	<xs:element name="OtherAddressPostalCode" type="xs:string" />
+	<xs:element name="OtherAddressState" type="xs:string" />
+	<xs:element name="OtherAddressStreet" type="xs:string" />
+	<xs:element name="PagerNumber" type="xs:string" />
+	<xs:element name="Title" type="xs:string" />
+	<xs:element name="BusinessAddressPostalCode" type="xs:string" />
+	<xs:element name="LastName" type="xs:string" />
+	<xs:element name="Spouse" type="xs:string" />
+	<xs:element name="BusinessAddressState" type="xs:string" />
+	<xs:element name="BusinessAddressStreet" type="xs:string" />
+	<xs:element name="JobTitle" type="xs:string" />
+	<xs:element name="YomiFirstName" type="xs:string" />
+	<xs:element name="YomiLastName" type="xs:string" />
+	<xs:element name="YomiCompanyName" type="xs:string" />
+	<xs:element name="OfficeLocation" type="xs:string" />
+	<xs:element name="RadioPhoneNumber" type="xs:string" />
+	<xs:element name ="Picture" type="xs:string"/>
+	<xs:element name="Categories">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Category" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Children">
+		<xs:complexType>
+			<xs:sequence minOccurs="0">
+				<xs:element maxOccurs="300" name="Child" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Body" type="A:Body" />
+</xs:schema>
+

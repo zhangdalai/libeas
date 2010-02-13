@@ -1,0 +1,8 @@
+Command line parsed to:
+Verbose: 1
+Command: Sync
+Folder: INBOX
+<?xml version"1.0" encoding="utf-8"?>
+	<FolderSync>
+		<SyncKey>0</SyncKey>
+	</FolderSync>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<xs:schema
+	xmlns:tns="Notes:"
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="Notes:"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:A="AirSyncBase:">
+	
+	<xs:element name="Subject" type="xs:string" />
+	<xs:element name="Body" type="A:Body" />
+	<xs:element name="MessageClass" type="xs:string" />
+	<xs:element name="LastModifiedDate" type="xs:dateTime" />
+	<xs:element name="Categories">
+		<xs:complexType>
+			<xs:sequence minOccurs=="0=">
+				<xs:element maxOccurs="300" name="Category" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

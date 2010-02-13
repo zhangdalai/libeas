@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<xs:schema
+xmlns:tns="EMAIL:"
+attributeFormDefault="unqualified"
+elementFormDefault="qualified"
+targetNamespace="EMAIL:"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:A="AirSyncBase:">
+
+	<xs:import namespace="AirSyncBase" />
+	<xs:element name="To" type="xs:string" />
+	<xs:element name="From" type="xs:string" />
+	<xs:element name="DateReceived" type="xs:dateTime" />
+	<xs:element name="Importance" type="xs:unsignedByte" />
+	<xs:element name="Read" type="xs:unsignedByte" />
+	<xs:element name="Body" type="A:Body" />
+	<xs:element name="InternetCPID" type="xs:string" />
+	<xs:element name="Flag">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Subject" type="xs:string" />
+				<xs:element name="Status" type="xs:unsignedByte" />
+				<xs:element name="FlagType" type="xs:string" />
+				<xs:element name="DateCompleted" type="xs:dateTime" />
+				<xs:element name="CompleteTime" type="xs:dateTime" />
+				<xs:element name="StartDate" type="xs:dateTime" />
+				<xs:element name="DueDate" type="xs:dateTime" />
+				<xs:element name="UTCStartDate" type="xs:dateTime" />
+				<xs:element name="UTCEndDate" type="xs:dateTime" />
+				<xs:element name="ReminderSet" type="xs:unsignedByte" />
+				<xs:element name="ReminderTime" type="xs:dateTime" />
+				<xs:element name="OrdinalDate" type="xs:dateTime" />
+				<xs:element name="SubOrdinalDate" type="xs:dateTime" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ConversationId" type="xs:string" />
+	<xs:element name="ConversationIndex" type="xs:string" />
+</xs:schema>
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <xs:schema
+		attributeFormDefault="unqualified"
+		xmlns:airsyncbase="AirSyncBase:"
+		elementFormDefault="qualified"
+		targetNamespace="AirSyncBase:"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="AirSyncBase:">
+
+	<xs:element name="FileReference" type="xs:string" />
+	<xs:element name="BodyPreference">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Type" type="xs:unsignedByte" />
+				<xs:element name="TruncationSize" minOccurs="0" type="xs:unsignedInt" />
+				<xs:element name="AllOrNone" minOccurs="0" type="xs:boolean"/>
+				<xs:element name="Restriction" minOccurs="0" type="xs:string" />
+				<xs:element name="Preview" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:unsignedInt">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Type" type="xs:unsignedByte" />
+				<xs:element name="EstimatedDataSize" type="xs:unsignedInt" minOccurs="0"/>
+				<xs:element name="Truncated" minOccurs="0" type="xs:boolean"/>
+				<xs:element name="Data" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Attachments">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Attachment">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+							<xs:element name="FileReference" type="xs:string" />
+							<xs:element name="Method" type="xs:unsignedByte" />
+							<xs:element name="EstimatedDataSize" type="xs:unsignedInt" />
+							<xs:element name="ContentId" type="xs:string" minOccurs="0" />
+							<xs:element name="ContentLocation" type="xs:string" minOccurs="0"/>
+							<xs:element name="IsInline" minOccurs="0" type="xs:boolean"/>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="EmptyTag"/>
+	<xs:element name="NativeBodyType" type="xs:unsignedByte" />
+	<xs:group name="TopLevelSchemaProps">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Body" type="airsyncbase:EmptyTag"/>
+				<xs:element name="Attachments" type="airsyncbase:EmptyTag"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+</xs:schema>

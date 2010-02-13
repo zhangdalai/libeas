@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<xs:schema
+	xmlns:tns="FolderHierarchy:"
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="FolderHierarchy:"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="FolderSync">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="1" name="Status" type="xs:unsignedByte" />
+					<xs:element minOccurs="0" maxOccurs="1" name="SyncKey" type="xs:string" />
+						<xs:element minOccurs="0" maxOccurs="1" name="Changes">
+							<xs:complexType>
+                               <xs:sequence>
+                                    <xs:element name="Count" minOccurs="0" maxOccurs="1" type="xs:unsignedByte" />
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Update">
+                                         <xs:complexType>
+                                              <xs:sequence>
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="ServerId" type="xs:string" />
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="ParentId" type="xs:string" /> 
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="DisplayName" type="xs:string" />
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="Type" type="xs:unsignedByte" />
+                                              </xs:sequence>
+                                         </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Delete">
+                                         <xs:complexType>
+                                              <xs:sequence>
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="ServerId" type="xs:string" />
+                                              </xs:sequence>
+                                         </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Add">
+                                         <xs:complexType>
+                                              <xs:sequence>
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="ServerId" type="xs:string" />
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="ParentId" type="xs:string" />
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="DisplayName" type="xs:string" />
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="Type" type="xs:unsignedByte" />
+                                              </xs:sequence>
+                                         </xs:complexType>
+                                    </xs:element>
+                              </xs:sequence>
+                         </xs:complexType>
+                    </xs:element>
+               </xs:sequence>
+          </xs:complexType>
+     </xs:element>
+</xs:schema>
+

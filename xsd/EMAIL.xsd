@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<xs:schema
+	xmlns:tns="EMAIL:"
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	targetNamespace="EMAIL:" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:A="AirSyncBase:"
+	xmlns:email2="Email2" 
+	xmlns:tasks="Tasks:">
+    
+	<xs:import namespace="AirSyncBase" />
+	<xs:import namespace="Tasks:"/>
+	<xs:import namespace="Email2:"/>
+	<xs:element name="To" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="Cc" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="From" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="Subject" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="ReplyTo" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="DateReceived" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+	<xs:element name="DisplayTo" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="ThreadTopic" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="Importance" type="xs:unsignedByte" minOccurs="0" maxOccurs="1" />
+	<xs:element name="Read" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+	<xs:element name="Attachments" type="A:Attachments" minOccurs="0" maxOccurs="1" >
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Attachment" minOccurs="1" maxOccurs="unbounded" >
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DisplayName" type="xs:string" minOccurs="0" maxOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Body" type="A:Body" minOccurs="0" maxOccurs="1"/>
+	<xs:element name="MessageClass" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	<xs:element name="MeetingRequest" minOccurs="0" maxOccurs="1">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AllDayEvent" type="xs:unsignedByte" minOccurs="1" maxOccurs="1" />
+				<xs:element name="StartTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+				<xs:element name="DtStamp" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+				<xs:element name="EndTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+				<xs:element name="InstanceType" type="xs:unsignedByte" minOccurs= "1" maxOccurs="1" />
+				<xs:element minOccurs="0" name="Location" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Organizer" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element minOccurs="0" name="RecurrenceId" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Reminder" type="xs:unsignedShort" minOccurs="0" maxOccurs="1" />
+				<xs:element name="ResponseRequested" type="xs :unsignedByte" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Recurrences" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Recurrence" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Type" type="xs:unsignedByte" minOccurs="1" maxOccurs="1" />
+										<xs:element name="Interval" type="xs:integer" minOccurs="1" maxOccurs="1" />
+										<xs:element name="Until" type="xs:datetime" minOccurs="1" maxOccurs="1" />
+										<xs:element name="Occurrences" type="xs:integer" minOccurs="1" maxOccurs="1" />
+										<xs:element name="WeekOfMonth" type="xs:integer" minOccurs="0" maxOccurs="1" />
+										<xs:element name="DayOfMonth" type="xs:integer" minOccurs="0" maxOccurs="1" />
+										<xs:element name="DayOfWeek" type="xs:integer" minOccurs="0" maxOccurs="1" />
+										<xs:element name="MonthOfYear" type="xs:integer" minOccurs="0" maxOccurs="1" />
+										<xs:element name="CalendarType" type="xs:integer" minOccurs="0" maxOccurs="1" />
+										<xs:element name="IsLeapMonth" type="xs:unsignedByte" minOccurs="0" maxOccurs="1" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Sensitivity" type="xs:integer" minOccurs="0" maxOccurs="1" />
+				<xs:element name="BusyStatus" type="xs:integer" minOccurs="0" maxOccurs="1" />
+				<xs:element name="TimeZone" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="GlobalObjId" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InternetCPID" type="xs:string" minOccurs="1" maxOccurs="1" />
+	<xs:element name="Flag" minOccurs="0" maxOccurs="1" >
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tasks:Subject" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Status" type="xs:integer" minOccurs="0" maxOccurs="1" />
+				<xs:element name="FlagType" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:DateCompleted" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element name="CompleteTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:StartDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:DueDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:UTCStartDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:UTCDueDate" type="xs:dateTime" minOccurs="0" maxOccurs="1 "/>
+				<xs:element ref="tasks:ReminderSet" type="xs: unsignedByte" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:ReminderTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:OrdinalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tasks:SubOrdinalDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContentClass" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element name="NativeBodyType" type="A:NativeBodyType" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:UmCallerID" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:UmUserNotes" type="xs:stri ng" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:UmAttOrder" type="xs:integer" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:UmAttDuration" type="xs:integer" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:ConversationId" type="xs:string" minOccurs="1" maxOccurs="1" />
+	<xs:element ref="email2:ConversationIndex" type="xs:string" minOccurs="1" maxOccurs="1" />
+	<xs:element ref="email2:LastVerbExecuted" type="xs:integer" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:LastVerbExecutionTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:ReceivedAsBcc" type="xs:unsignedByte" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:Sender" type="xs:string" minOccurs="0" maxOccurs="1" />
+	<xs:element ref="email2:Categories" type="xs:string" minOccurs="0" maxOccurs="1" >
+		<xs:complexType>
+			<xs:element ref="email2:Category" type="xs:string" minOccurs="0" maxOccurs="300" />
+		</xs:complexType>
+    </xs:element>
+</xs:schema>
+
+
+
+
