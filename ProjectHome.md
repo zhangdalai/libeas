@@ -1,0 +1,1 @@
+The goal of this project is to develop a C library for generating the XML and WBXML formatted messages that is required to use Exchange Active Sync protocol for syncing email and PIM data. It does not implement a client or a server, but it can be used a basis for either.
